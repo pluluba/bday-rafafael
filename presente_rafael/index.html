@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Aniversário!</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .faixa-topo, .rodape {
+      background-color: #ff1e00;
+      color: white;
+      text-align: center;
+      padding: 0.7rem 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    @keyframes pulsar {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    .rodape {
+      animation: pulsar 2s infinite;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 2rem;
+      margin: auto;
+      flex: 1;
+    }
+
+    h1 {
+      font-weight: bold;
+      font-size: 2rem;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .normal {
+      font-weight: 400;
+    }
+
+    .destaque {
+      color: #ff1e00;
+      font-weight: bold;
+    }
+
+    .carrossel img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .mensagem {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background-color: transparent;
+      color: white;
+      border: 1px solid #ff1e00;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      box-shadow: 0 0 10px #ff1e00;
+      margin-bottom: 1rem;
+    }
+
+    button:hover {
+      background-color: #ff1e00;
+      color: black;
+    }
+
+    .btn-icone {
+      font-size: 1rem;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+
+    .fechar {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: #ff1e00;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Faixa vermelha no topo -->
+  <div class="faixa-topo">❤️ FELIZ ANIVERSÁRIO, RAFAEL! ❤️</div>
+
+  <div class="container">
+    <h1>
+      Feliz aniversário para você<br />
+      <span class="normal">(vamos todos cantar de coração)</span><br />
+      <span class="destaque">O RAFAEL É MALVADÃO!</span>
+    </h1>
+
+    <div class="carrossel">
+      <img id="fotoCarrossel" src="fotorafael.jpg.jpeg" alt="Foto do aniversariante" />
+    </div>
+
+  <p class="mensagem">
+  Dia da pessoa que tem o sorriso mais lindo que existe. 💙<br><br>
+
+  Mesmo você me tirando do sério às vezes (várias vezes 😂), eu não trocaria nossos momentos por nada nesse mundo. Você tem esse dom estranho de me fazer rir até quando eu tô brava — o que é bem injusto, inclusive.<br><br>
+
+  Sou completamente louca por você (nem vem rir de mim agora), e cada segundo que a gente passa junto é especial de um jeito que eu nem sei explicar. Eu gosto de você do jeitinho que você é. Como eu já disse, você tem algo que mexe comigo de um jeito que eu não entendo — e eu realmente gosto de você mais do que gostaria.<br><br>
+
+  Eu queria que isso aqui durasse pra sempre, mesmo sabendo que a vida nem sempre é tão generosa assim... Mas, enquanto durar, eu só quero curtir com você — rindo, zoando, te xingando de leve e amando cada detalhe seu.<br><br>
+
+  Eu sei que às vezes (ou sempre) sou bem chata, muito ciumenta, insuportável, fico no seu pé... mas sabe, é o meu jeitinho — e você <strong>TEM QUE ME ACEITAR ASSIM!</strong> 😠<br><br>
+
+  Não tem nada nesse mundo que eu não faria por você. Só quero te ver feliz.<br><br>
+
+  Que seu novo ciclo seja leve, feliz e cheio de motivos pra sorrir (de preferência comigo do lado, né?). 😜
+</p>
+
+
+    <!-- Botão 1 -->
+    <button onclick="abrirModal('modal1')">
+      Acesse aqui seu primeiro presente: <span class="btn-icone">🎁</span>
+    </button>
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="fechar" onclick="fecharModal('modal1')">&times;</span>
+        <img src="presente1.jpg" alt="Primeiro presente" />
+      </div>
+    </div>
+
+    <!-- Botão 2 -->
+    <button onclick="abrirModal('modal2')">
+      Acesse aqui seu segundo presente: <span class="btn-icone">🎁</span>
+    </button>
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="fechar" onclick="fecharModal('modal2')">&times;</span>
+        <img src="presente2.png" alt="Segundo presente" />
+      </div>
+    </div>
+
+    <!-- Botão 3 -->
+    <button onclick="abrirModal('modal3')">
+      Acesse aqui seu terceiro presente: <span class="btn-icone">🎉</span>
+    </button>
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="fechar" onclick="fecharModal('modal3')">&times;</span>
+        <img src="presente3.jpg.png" alt="Terceiro presente" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="rodape">
+    Feito por sua novinha com muito carinho ❤️
+  </div>
+
+  <!-- Música para o terceiro presente -->
+  <audio id="audio" src="hino_flamengo.mp3"></audio>
+
+  <!-- Scripts -->
+  <script>
+    // Carrossel de imagens
+    const imagens = [
+      "fotorafael.jpg.jpeg",
+      "fotorafael.jpg.jpg",
+      "fotorafael2.jpg.jpg",
+      "fotorafael3.jpg",
+      "fotorafael4.jpg",
+      "fotorafael5.jpg"
+    ];
+    let i = 0;
+    const carrossel = document.getElementById("fotoCarrossel");
+
+    setInterval(() => {
+      carrossel.style.opacity = 0;
+      setTimeout(() => {
+        i = (i + 1) % imagens.length;
+        carrossel.src = imagens[i];
+        carrossel.style.opacity = 1;
+      }, 500);
+    }, 3000);
+
+    // Abrir modal
+    function abrirModal(id) {
+      document.getElementById(id).style.display = "flex";
+      
+      // Toca o áudio apenas no terceiro presente
+      if (id === 'modal3') {
+        const audio = document.getElementById("audio");
+        audio.currentTime = 0;
+        audio.play();
+      }
+    }
+
+    // Fechar modal
+    function fecharModal(id) {
+      document.getElementById(id).style.display = "none";
+      
+      // Para o áudio quando o modal for fechado
+      if (id === 'modal3') {
+        const audio = document.getElementById("audio");
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+  </script>
+
+</body>
+</html>
